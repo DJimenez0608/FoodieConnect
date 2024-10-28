@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodie_connect/Screens/intro_screen/post_view.dart';
-import 'package:foodie_connect/Screens/login_screen.dart';
+import 'package:foodie_connect/Screens/login_screen/login_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class IntroScreen extends StatelessWidget {

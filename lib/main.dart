@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:foodie_connect/Screens/intro_screen/intro_screen.dart';
-import 'package:foodie_connect/Screens/intro_screen/post_view.dart';
 import 'package:foodie_connect/Screens/splash_screen.dart';
 
 void main() {
@@ -20,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie_connect/Screens/login_screen/login_ways.dart';
 import 'package:lottie/lottie.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -20,9 +21,9 @@ class _LoginScreenState extends State<LoginScreen> {
       body: SafeArea(
         child: Center(
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              //PRESENTATION
               SizedBox(
                 height: 200,
                 child: Lottie.network(
@@ -73,6 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
               const SizedBox(height: 50),
+              //USERNAME
               SizedBox(
                 width: 350,
                 child: TextField(
@@ -91,6 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               const SizedBox(height: 20),
+              //PASSWORD
               SizedBox(
                 width: 350,
                 child: TextField(
@@ -124,19 +127,59 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               const SizedBox(height: 30),
+              //LOGIN BUTTOM
               SizedBox(
                 width: 350,
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: Text(
+                  style:
+                      ElevatedButton.styleFrom(backgroundColor: Colors.orange),
+                  child: const Text(
                     'Login',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 17,
                     ),
                   ),
-                  style:
-                      ElevatedButton.styleFrom(backgroundColor: Colors.orange),
+                ),
+              ),
+              const SizedBox(height: 25),
+              //LOGIN WAYS
+              SizedBox(
+                width: 225,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    //EMAIL
+                    LoginWay(
+                      image: 'assets/images/loginWays_images/emailLogo.png',
+                      onTap: () {},
+                    ),
+                    //APPLE
+                    LoginWay(
+                      image: 'assets/images/loginWays_images/apple.png',
+                      onTap: () {},
+                    ),
+                    //MICROSOFT
+                    LoginWay(
+                      image: 'assets/images/loginWays_images/microsoft.png',
+                      onTap: () {},
+                    ),
+                    //GITHUB
+                    LoginWay(
+                      image: 'assets/images/loginWays_images/github.png',
+                      onTap: () {},
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 40),
+              const Text('I don´t have account yet!'),
+              GestureDetector(
+                onTap: () {},
+                child: const Text(
+                  'Sign up',
+                  style: TextStyle(decoration: TextDecoration.underline),
                 ),
               ),
             ],
