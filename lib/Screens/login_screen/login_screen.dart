@@ -29,6 +29,10 @@ class _LoginScreenState extends State<LoginScreen> {
       setState(() {
         errrorMessage = e.message;
       });
+      Dialog(
+          child: AlertDialog(
+        title: Text(errrorMessage!),
+      ));
     }
   }
 

@@ -29,7 +29,7 @@ class _SignupScreenState extends State<SignupScreen> {
         email: _emailController.text,
         password: _passwordController.text,
       );
-      print('SIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII');
+      Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         print('The password provided is too weak.');
