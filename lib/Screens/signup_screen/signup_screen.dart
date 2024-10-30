@@ -22,6 +22,37 @@ class _SignupScreenState extends State<SignupScreen> {
 
   final TextEditingController _dateController = TextEditingController();
   String? country;
+  void showDialogError(String m) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Column(
+            children: [
+              Text(
+                'ERROR!',
+                textAlign: TextAlign.center,
+                style:
+                    TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 20),
+              Text(
+                m,
+                style: TextStyle(fontSize: 17),
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text('Ok'))
+          ],
+        );
+      },
+    );
+  }
 
   Future<void> createUserWithEmailAndPassword() async {
     try {
@@ -32,12 +63,12 @@ class _SignupScreenState extends State<SignupScreen> {
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        print('The password provided is too weak.');
+        showDialogError('The password provided is too weak.');
       } else if (e.code == 'email-already-in-use') {
-        print('The account already exists for that email.');
+        showDialogError('The account already exists for that email.');
       }
     } catch (e) {
-      print(e);
+      showDialogError(e.toString());
     }
   }
 
