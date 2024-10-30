@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:foodie_connect/Screens/auth_class.dart';
 import 'package:foodie_connect/Screens/login_screen/login_ways.dart';
+import 'package:foodie_connect/Screens/signup_screen/signup_screen.dart';
 import 'package:lottie/lottie.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -11,9 +14,23 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _userController = TextEditingController();
-  IconData _icon = Icons.remove_red_eye_outlined;
   final TextEditingController _passwordController = TextEditingController();
+  IconData _icon = Icons.remove_red_eye_outlined;
   bool _obscureText = false;
+  String? errrorMessage = '';
+
+  Future<void> signInWithEmailAndPassword() async {
+    try {
+      await AuthClass().signInWithEmailAndPassword(
+        email: _userController.text,
+        password: _passwordController.text,
+      );
+    } on FirebaseAuthException catch (e) {
+      setState(() {
+        errrorMessage = e.message;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   fontSize: 25,
                 ),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -131,7 +148,7 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(
                 width: 350,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: signInWithEmailAndPassword,
                   style:
                       ElevatedButton.styleFrom(backgroundColor: Colors.orange),
                   child: const Text(
@@ -176,7 +193,14 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 40),
               const Text('I don´t have account yet!'),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => SignupScreen(),
+                    ),
+                  );
+                },
                 child: const Text(
                   'Sign up',
                   style: TextStyle(decoration: TextDecoration.underline),
