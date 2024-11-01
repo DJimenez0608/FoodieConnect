@@ -194,30 +194,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 //LOGIN WAYS
                 SizedBox(
                   width: 225,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      //EMAIL
-                      LoginWay(
-                        image: 'assets/images/loginWays_images/emailLogo.png',
-                        onTap: () {},
-                      ),
-                      //APPLE
-                      LoginWay(
-                        image: 'assets/images/loginWays_images/apple.png',
-                        onTap: () {},
-                      ),
-                      //MICROSOFT
-                      LoginWay(
-                        image: 'assets/images/loginWays_images/microsoft.png',
-                        onTap: () {},
-                      ),
-                      //GITHUB
-                      LoginWay(
-                        image: 'assets/images/loginWays_images/github.png',
-                        onTap: () {},
-                      ),
-                    ],
+                  child: LoginWay(
+                    image: 'assets/images/loginWays_images/emailLogo.png',
+                    onTap: AuthClass().signinWithGoogle,
                   ),
                 ),
                 const SizedBox(height: 40),

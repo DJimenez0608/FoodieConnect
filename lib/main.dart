@@ -2,7 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:foodie_connect/Screens/splash_screen.dart';
 import 'package:foodie_connect/firebase_options.dart';
-import 'package:foodie_connect/widgetTree.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

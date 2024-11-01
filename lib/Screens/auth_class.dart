@@ -1,7 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:foodie_connect/Screens/home_screen/home_screen.dart';
-import 'package:foodie_connect/Screens/login_screen/login_screen.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthClass {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -33,5 +31,21 @@ class AuthClass {
       email: email,
       password: password,
     );
+  }
+
+  //LOGIN WITH GOOGLE
+  Future<UserCredential> signinWithGoogle() async {
+    //Beging auth flow
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    //Obtain auth details from the request
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
+    //Create the credential
+    final credential = GoogleAuthProvider.credential(
+      idToken: googleAuth?.idToken,
+      accessToken: googleAuth?.accessToken,
+    );
+    //RETURN THE USER CREDENCIAL
+    return await _firebaseAuth.signInWithCredential(credential);
   }
 }
