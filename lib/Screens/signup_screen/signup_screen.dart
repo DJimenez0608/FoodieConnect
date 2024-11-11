@@ -1,7 +1,9 @@
 import 'package:country_picker/country_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:foodie_connect/Screens/auth_class.dart';
+import 'package:foodie_connect/Screens/classes/auth_class.dart';
+import 'package:foodie_connect/Screens/classes/storeClase.dart';
+import 'package:foodie_connect/Screens/classes/user_class.dart';
 import 'package:foodie_connect/Screens/signup_screen/informationField.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -55,6 +57,19 @@ class _SignupScreenState extends State<SignupScreen> {
   }
 
   Future<void> createUserWithEmailAndPassword() async {
+    UserC newUser = UserC(
+        email: _emailController.text,
+        password: _passwordController.text,
+        name: _nameController.text,
+        country: country,
+        birthday: fecha);
+    try {
+      Storeclase().saveUser(newUser.toJson());
+    } catch (e) {
+      showDialogError(e.toString());
+    }
+    ;
+
     try {
       await AuthClass().createUserWithEmailAndPassword(
         email: _emailController.text,

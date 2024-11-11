@@ -43,6 +43,7 @@ dependencies:
   country_picker: ^2.0.26
   google_sign_in: ^6.2.1
   bottom_navy_bar: ^6.1.0
+  cloud_firestore: ^5.4.5
 
 dev_dependencies:
   flutter_test:

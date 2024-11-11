@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodie_connect/Screens/auth_class.dart';
+import 'package:foodie_connect/Screens/classes/auth_class.dart';
 import 'package:foodie_connect/Screens/home_screen/home_screen.dart';
 import 'package:foodie_connect/Screens/login_screen/login_screen.dart';
 

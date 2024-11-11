@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:foodie_connect/Screens/auth_class.dart';
+import 'package:foodie_connect/Screens/classes/auth_class.dart';
 import 'package:foodie_connect/Screens/login_screen/login_ways.dart';
 import 'package:foodie_connect/Screens/signup_screen/signup_screen.dart';
 import 'package:lottie/lottie.dart';
