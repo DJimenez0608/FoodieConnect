@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:foodie_connect/Screens/classes/store_clase.dart';
 
 class Profileview extends StatelessWidget {
   const Profileview({super.key});
@@ -34,7 +35,11 @@ class Profileview extends StatelessWidget {
           Text('COUNTRY'),
           Text('DESCRIPTION (OPTIONAL)'),
 
-          TextButton(onPressed: () {}, child: Icon(Icons.abc))
+          TextButton(
+              onPressed: () {
+                Storeclase().getUserInfo();
+              },
+              child: Icon(Icons.abc))
         ],
       ),
     );
