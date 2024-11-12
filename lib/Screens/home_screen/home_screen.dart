@@ -19,9 +19,9 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   final List<Widget> _pages = [
+    SettingView(),
     Homeview(),
     Profileview(),
-    SettingView(),
   ];
 
   @override
@@ -37,15 +37,43 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         backgroundColor: Colors.orange,
-        actions: [TextButton(onPressed: signOut, child: Text('Sign out now!'))],
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.message_rounded),
+          ),
+        ],
       ),
       drawer: Drawer(
-        child: Column(
-          children: [
-            //PROFILE PHOTO
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 70),
+          child: Column(
+            children: [
+              //PROFILE PHOTO
+              Container(
+                decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(50)),
+                height: 100,
+                width: 100,
+              ),
+              SizedBox(height: 30),
 
-            //ACOUNT DETAILS
-          ],
+              //PROFILE NAME
+              Text(
+                'Profile Name',
+                style: TextStyle(fontSize: 20),
+              ),
+
+              //SIGN OUT OPTION
+              TextButton(onPressed: signOut, child: Text('Sign out now!')),
+              TextButton.icon(
+                onPressed: () {},
+                label: Text('favorites recieps'),
+                icon: Icon(Icons.favorite),
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomNavyBar(

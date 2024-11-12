@@ -1,5 +1,3 @@
-import 'package:uuid/uuid.dart';
-
 class UserC {
   final String email;
   final String password;

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class Profileview extends StatelessWidget {
@@ -5,6 +6,37 @@ class Profileview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(50)),
+                height: 100,
+                width: 100,
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              Text(
+                'Profile Name',
+                style: TextStyle(fontSize: 30),
+              ),
+            ],
+          ),
+          SizedBox(height: 30),
+          //USER INFORMATION
+          Text('NAME'),
+          Text('COUNTRY'),
+          Text('DESCRIPTION (OPTIONAL)'),
+
+          TextButton(onPressed: () {}, child: Icon(Icons.abc))
+        ],
+      ),
+    );
   }
 }
