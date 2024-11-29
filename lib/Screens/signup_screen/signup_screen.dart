@@ -2,7 +2,7 @@ import 'package:country_picker/country_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:foodie_connect/Screens/classes/auth_class.dart';
-import 'package:foodie_connect/Screens/classes/store_clase.dart';
+import 'package:foodie_connect/Screens/classes/fire_store_clase.dart';
 import 'package:foodie_connect/Screens/classes/user_class.dart';
 import 'package:foodie_connect/Screens/signup_screen/informationField.dart';
 
@@ -82,7 +82,7 @@ class _SignupScreenState extends State<SignupScreen> {
     );
 
     try {
-      Storeclase().saveUser(newUser);
+      FireStoreclase().saveUser(newUser);
     } catch (e) {
       showDialogError(e.toString());
     }
